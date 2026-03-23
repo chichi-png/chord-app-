@@ -3,12 +3,15 @@ version: '3.8'
 services:
   backend:
     build: ./backend
+    ports:
+      - "8000:8000"
     environment:
       - SECRET_KEY=${SECRET_KEY}
       - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
       - FACEBOOK_APP_ID=${FACEBOOK_APP_ID}
       - FRONTEND_URL=${FRONTEND_URL}
       - ADMIN_EMAIL=${ADMIN_EMAIL}
+      - DEMO_MODE=${DEMO_MODE}
     volumes:
       - chord_db_data:/app/data
     networks:
