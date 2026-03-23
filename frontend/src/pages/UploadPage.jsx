@@ -133,14 +133,14 @@ const UploadPage = () => {
           {/* Left Column: Image Upload & OCR */}
           <div style={styles.column}>
             <div style={styles.card}>
-              <h2 style={styles.cardTitle}>1. Upload Image (Optional)</h2>
+              <h2 style={styles.cardTitle}>1. Upload File (Optional)</h2>
               <p style={styles.cardDescription}>
-                Upload a chord sheet image and use OCR to extract text
+                Upload image (JPG, PNG) or Word doc (.docx) to extract chords
               </p>
 
               <input
                 type="file"
-                accept="image/*"
+                accept="image/*,.docx,.doc"
                 onChange={handleImageChange}
                 style={styles.fileInput}
                 id="imageUpload"

@@ -49,10 +49,10 @@ const SongPage = () => {
     try {
       const response = await api.post('/transpose', {
         chords: song.chords,
-        original_key: song.original_key,
-        target_key: newKey
+        from_key: song.original_key,
+        to_key: newKey
       });
-      setTransposedChords(response.data.transposed_chords);
+      setTransposedChords(response.data.transposed);
     } catch (err) {
       alert('Transpose failed: ' + (err.response?.data?.detail || 'Unknown error'));
       setSelectedKey(song.original_key);
