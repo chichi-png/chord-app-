@@ -1,10 +1,13 @@
 from fastapi import FastAPI, Depends, HTTPException, UploadFile, File
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from typing import Optional, List
 import uvicorn
+import os
+from pathlib import Path
 
 from config import settings
 from database import get_db, init_db
@@ -376,6 +379,28 @@ async def download_song_pdf(
             "Content-Disposition": f'attachment; filename="{filename}"'
         }
     )
+
+# Serve static files (React frontend) if available
+static_dir = Path(__file__).parent / "static"
+if static_dir.exists():
+    # Mount static files
+    app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
+
+    # Catch-all route to serve React app (must be last)
+    @app.get("/{full_path:path}")
+    async def serve_react_app(full_path: str):
+        """Serve React app for all non-API routes"""
+        # Check if it's a static file request
+        file_path = static_dir / full_path
+        if file_path.is_file():
+            return FileResponse(file_path)
+
+        # Otherwise serve index.html for client-side routing
+        index_file = static_dir / "index.html"
+        if index_file.exists():
+            return FileResponse(index_file)
+
+        raise HTTPException(status_code=404, detail="Not found")
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
