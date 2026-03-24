@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from google.oauth2 import id_token
 from google.auth.transport import requests as google_requests
 import requests
-from jose import jwt
+from jose import jwt, JWTError
 from datetime import datetime, timedelta
 from config import settings
 from database import get_db
@@ -75,9 +75,7 @@ def decode_jwt_token(token: str) -> dict:
     try:
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.JWT_ALGORITHM])
         return payload
-    except jwt.ExpiredSignatureError:
-        raise HTTPException(status_code=401, detail="Token expired")
-    except jwt.InvalidTokenError:
+    except JWTError:
         raise HTTPException(status_code=401, detail="Invalid token")
 
 # User Creation/Retrieval
