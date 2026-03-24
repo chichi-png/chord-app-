@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import api from '../utils/api';
+import { colors, typography, spacing, borderRadius, shadows, components } from '../styles/designSystem';
 
 const AdminPage = () => {
   const navigate = useNavigate();
@@ -50,11 +51,11 @@ const AdminPage = () => {
   const getRoleBadgeStyle = (role) => {
     switch (role) {
       case 'admin':
-        return { ...styles.badge, backgroundColor: '#f0c040', color: '#0a0e1a' };
+        return { ...styles.badge, backgroundColor: colors.roleAdmin, color: colors.roleAdminText };
       case 'viewer':
-        return { ...styles.badge, backgroundColor: '#4caf50', color: '#fff' };
+        return { ...styles.badge, backgroundColor: colors.roleViewer, color: colors.roleViewerText };
       case 'pending':
-        return { ...styles.badge, backgroundColor: '#ff9800', color: '#fff' };
+        return { ...styles.badge, backgroundColor: colors.rolePending, color: colors.rolePendingText };
       default:
         return styles.badge;
     }
@@ -191,23 +192,23 @@ const AdminPage = () => {
 const styles = {
   container: {
     minHeight: '100vh',
-    backgroundColor: '#0a0e1a',
-    color: '#ffffff',
-    padding: '20px',
+    backgroundColor: colors.background,
+    color: colors.darkText,
+    fontFamily: typography.fontFamily,
   },
   loading: {
     textAlign: 'center',
     padding: '50px',
-    fontSize: '18px',
-    color: '#aaa',
+    fontSize: typography.body,
+    color: colors.secondaryText,
   },
   header: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: '30px',
-    paddingBottom: '20px',
-    borderBottom: '1px solid #333',
+    padding: spacing.containerPadding,
+    borderBottom: `2px solid ${colors.borderDark}`,
+    backgroundColor: colors.background,
   },
   headerLeft: {
     display: 'flex',
@@ -216,17 +217,18 @@ const styles = {
   headerRight: {
     display: 'flex',
     alignItems: 'center',
-    gap: '15px',
+    gap: spacing.headerGap,
   },
   backButton: {
-    padding: '10px 20px',
-    backgroundColor: '#333',
-    color: '#f0c040',
-    border: '1px solid #f0c040',
-    borderRadius: '4px',
-    fontSize: '14px',
-    fontWeight: '600',
+    padding: '8px 16px',
+    backgroundColor: 'transparent',
+    color: colors.primaryAccent,
+    border: `1px solid ${colors.primaryAccent}`,
+    borderRadius: borderRadius.button,
+    fontSize: typography.body,
+    fontWeight: typography.medium,
     cursor: 'pointer',
+    transition: 'all 0.2s ease',
   },
   userInfo: {
     display: 'flex',
@@ -237,81 +239,79 @@ const styles = {
     width: '32px',
     height: '32px',
     borderRadius: '50%',
+    border: `1px solid ${colors.border}`,
   },
   userName: {
-    fontSize: '14px',
-    color: '#aaa',
+    fontSize: typography.metadata,
+    color: colors.secondaryText,
   },
   logoutButton: {
-    padding: '10px 20px',
-    backgroundColor: '#444',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '4px',
-    fontSize: '14px',
-    cursor: 'pointer',
+    ...components.buttonSecondary,
   },
   content: {
     maxWidth: '1400px',
     margin: '0 auto',
+    padding: spacing.containerPadding,
   },
   pageTitle: {
-    fontSize: '32px',
-    color: '#f0c040',
-    marginBottom: '30px',
+    fontSize: '28px',
+    color: colors.darkText,
+    marginBottom: spacing.sectionGap,
     textAlign: 'center',
-    fontFamily: 'Georgia, serif',
+    fontWeight: typography.medium,
   },
   error: {
-    padding: '15px',
-    backgroundColor: '#ff4444',
-    color: 'white',
-    borderRadius: '4px',
-    marginBottom: '20px',
+    padding: spacing.cardPadding,
+    backgroundColor: colors.errorBg,
+    color: colors.error,
+    borderRadius: borderRadius.card,
+    marginBottom: spacing.sectionGap,
     textAlign: 'center',
+    border: `1px solid ${colors.errorBorder}`,
   },
   tableContainer: {
-    backgroundColor: '#1a1f2e',
-    borderRadius: '12px',
+    ...components.card,
     overflow: 'hidden',
-    marginBottom: '30px',
+    marginBottom: spacing.sectionGap,
+    padding: 0,
   },
   table: {
     width: '100%',
     borderCollapse: 'collapse',
   },
   tableHeaderRow: {
-    backgroundColor: '#0a0e1a',
-    borderBottom: '2px solid #333',
+    backgroundColor: colors.background,
+    borderBottom: `2px solid ${colors.borderDark}`,
   },
   tableHeader: {
     padding: '15px',
     textAlign: 'left',
-    fontSize: '14px',
-    fontWeight: '600',
-    color: '#f0c040',
+    fontSize: typography.metadata,
+    fontWeight: typography.semibold,
+    color: colors.darkText,
     textTransform: 'uppercase',
     letterSpacing: '0.5px',
   },
   tableRow: {
-    borderBottom: '1px solid #333',
+    borderBottom: `1px solid ${colors.border}`,
   },
   tableCell: {
     padding: '15px',
-    fontSize: '14px',
-    color: '#fff',
+    fontSize: typography.metadata,
+    color: colors.darkText,
   },
   tableAvatar: {
     width: '40px',
     height: '40px',
     borderRadius: '50%',
+    border: `1px solid ${colors.border}`,
   },
   noAvatar: {
     width: '40px',
     height: '40px',
     borderRadius: '50%',
-    backgroundColor: '#f0c040',
-    color: '#0a0e1a',
+    backgroundColor: colors.primaryAccent,
+    color: colors.darkText,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -319,32 +319,28 @@ const styles = {
     fontSize: '18px',
   },
   provider: {
-    fontSize: '14px',
+    fontSize: typography.metadata,
   },
   badge: {
     display: 'inline-block',
-    padding: '4px 12px',
-    borderRadius: '12px',
-    fontSize: '12px',
-    fontWeight: '600',
+    padding: '6px 12px',
+    borderRadius: borderRadius.badge,
+    fontSize: typography.small,
+    fontWeight: typography.semibold,
     textTransform: 'uppercase',
     letterSpacing: '0.5px',
   },
   roleSelect: {
+    ...components.input,
     padding: '8px 12px',
-    backgroundColor: '#0a0e1a',
-    color: '#fff',
-    border: '1px solid #444',
-    borderRadius: '4px',
-    fontSize: '14px',
+    fontSize: typography.metadata,
     cursor: 'pointer',
-    fontFamily: 'Georgia, serif',
   },
   emptyState: {
     textAlign: 'center',
     padding: '50px',
-    color: '#aaa',
-    fontSize: '16px',
+    color: colors.secondaryText,
+    fontSize: typography.body,
   },
   stats: {
     display: 'grid',
@@ -352,20 +348,19 @@ const styles = {
     gap: '20px',
   },
   statCard: {
-    backgroundColor: '#1a1f2e',
+    ...components.card,
     padding: '25px',
-    borderRadius: '12px',
     textAlign: 'center',
   },
   statValue: {
     fontSize: '36px',
-    fontWeight: 'bold',
-    color: '#f0c040',
+    fontWeight: typography.semibold,
+    color: colors.primaryAccent,
     marginBottom: '10px',
   },
   statLabel: {
-    fontSize: '14px',
-    color: '#aaa',
+    fontSize: typography.metadata,
+    color: colors.secondaryText,
     textTransform: 'uppercase',
     letterSpacing: '0.5px',
   },
