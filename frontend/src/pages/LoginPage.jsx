@@ -217,7 +217,7 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     gap: '10px',
-    boxShadow: shadows.button,
+    boxShadow: '0 2px 6px rgba(44,24,16,0.1)',
     transition: 'all 0.2s ease',
   },
   facebookIcon: {
