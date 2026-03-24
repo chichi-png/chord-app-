@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { colors, typography } from './styles/designSystem';
 
 // Pages
 import LoginPage from './pages/LoginPage';
@@ -125,12 +126,12 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
-    backgroundColor: '#0a0e1a',
+    backgroundColor: colors.background,
   },
   loadingSpinner: {
     fontSize: '24px',
-    color: '#f0c040',
-    fontFamily: 'Georgia, serif',
+    color: colors.primaryAccent,
+    fontFamily: typography.fontFamily,
   },
 };
 
