@@ -251,7 +251,7 @@ const styles = {
     border: `1px solid ${colors.primaryAccent}`,
     borderRadius: borderRadius.button,
     fontSize: typography.body,
-    fontWeight: typography.medium,
+    fontWeight: typography.weightMedium,
     cursor: 'pointer',
     transition: 'all 0.2s ease',
   },
@@ -283,7 +283,7 @@ const styles = {
     color: colors.darkText,
     marginBottom: spacing.sectionGap,
     textAlign: 'center',
-    fontWeight: typography.medium,
+    fontWeight: typography.weightMedium,
   },
   formContainer: {
     display: 'flex',
@@ -308,7 +308,7 @@ const styles = {
     fontSize: typography.metadata,
     color: colors.darkText,
     marginBottom: '8px',
-    fontWeight: typography.medium,
+    fontWeight: typography.weightMedium,
   },
   input: {
     ...components.input,

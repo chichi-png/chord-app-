@@ -52,14 +52,14 @@ export const typography = {
   small: '11px',
 
   // Font weights
-  normal: 400,
-  medium: 500,
-  semibold: 600,
+  weightNormal: 400,
+  weightMedium: 500,
+  weightSemibold: 600,
 
   // Line heights
-  tight: 1.2,
-  normal: 1.6,
-  relaxed: 1.8,
+  lineHeightTight: 1.2,
+  lineHeightNormal: 1.6,
+  lineHeightRelaxed: 1.8,
 };
 
 export const spacing = {
@@ -105,7 +105,7 @@ export const components = {
     borderRadius: borderRadius.button,
     padding: spacing.buttonPaddingSmall,
     fontSize: typography.body,
-    fontWeight: typography.medium,
+    fontWeight: typography.weightMedium,
     boxShadow: shadows.button,
     transition: transitions.default,
     cursor: 'pointer',
@@ -118,7 +118,7 @@ export const components = {
     borderRadius: borderRadius.button,
     padding: spacing.buttonPaddingSmall,
     fontSize: typography.body,
-    fontWeight: typography.medium,
+    fontWeight: typography.weightMedium,
     transition: transitions.default,
     cursor: 'pointer',
   },
@@ -148,7 +148,7 @@ export const components = {
     padding: '6px 12px',
     borderRadius: borderRadius.badge,
     fontSize: '13px',
-    fontWeight: typography.semibold,
+    fontWeight: typography.weightSemibold,
     border: `1px solid ${colors.keyBadgeBorder}`,
   },
 };

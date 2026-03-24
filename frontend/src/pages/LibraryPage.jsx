@@ -310,7 +310,7 @@ const styles = {
     fontSize: typography.appTitle,
     color: colors.darkText,
     margin: 0,
-    fontWeight: typography.medium,
+    fontWeight: typography.weightMedium,
     letterSpacing: '-0.3px',
   },
   headerRight: {
@@ -380,7 +380,7 @@ const styles = {
   },
   groupTitle: {
     fontSize: typography.heading,
-    fontWeight: typography.medium,
+    fontWeight: typography.weightMedium,
     color: colors.darkText,
     marginBottom: '16px',
     letterSpacing: '-0.3px',
@@ -406,7 +406,7 @@ const styles = {
   },
   songTitle: {
     fontSize: typography.songTitle,
-    fontWeight: typography.medium,
+    fontWeight: typography.weightMedium,
     color: colors.darkText,
     margin: '0 0 4px 0',
   },
@@ -435,7 +435,7 @@ const styles = {
     borderRadius: borderRadius.small,
     fontSize: typography.small,
     cursor: 'pointer',
-    fontWeight: typography.medium,
+    fontWeight: typography.weightMedium,
     transition: 'all 0.2s ease',
   },
   deleteButton: {
@@ -446,7 +446,7 @@ const styles = {
     borderRadius: borderRadius.small,
     fontSize: typography.small,
     cursor: 'pointer',
-    fontWeight: typography.medium,
+    fontWeight: typography.weightMedium,
     transition: 'all 0.2s ease',
   },
 };

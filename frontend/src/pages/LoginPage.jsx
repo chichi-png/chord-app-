@@ -184,14 +184,14 @@ const styles = {
     marginBottom: '10px',
     color: colors.darkText,
     fontFamily: typography.fontFamily,
-    fontWeight: typography.medium,
+    fontWeight: typography.weightMedium,
     letterSpacing: '-0.5px',
   },
   subtitle: {
     fontSize: typography.body,
     color: colors.secondaryText,
     marginBottom: '40px',
-    fontWeight: typography.normal,
+    fontWeight: typography.weightNormal,
   },
   loginButtons: {
     display: 'flex',
@@ -211,7 +211,7 @@ const styles = {
     border: 'none',
     borderRadius: borderRadius.button,
     fontSize: typography.body,
-    fontWeight: typography.semibold,
+    fontWeight: typography.weightSemibold,
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
@@ -249,7 +249,7 @@ const styles = {
     fontSize: '24px',
     color: colors.darkText,
     marginBottom: '15px',
-    fontWeight: typography.medium,
+    fontWeight: typography.weightMedium,
   },
   pendingText: {
     fontSize: typography.body,
@@ -271,7 +271,7 @@ const styles = {
     padding: '0 10px',
     color: colors.secondaryText,
     fontSize: typography.small,
-    fontWeight: typography.semibold,
+    fontWeight: typography.weightSemibold,
   },
   demoButton: {
     width: '300px',

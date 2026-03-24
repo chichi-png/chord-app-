@@ -27,7 +27,8 @@
       "Bash(python:*)",
       "Bash(C:UsersSarah.claudepluginscacheclaude-plugins-officialsuperpowers5.0.5scriptsstart-server.sh --project-dir \"C:\\\\Users\\\\Sarah\\\\Downloads\\\\chord-app\")",
       "Bash(bash:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(pip install:*)"
     ]
   }
 }
