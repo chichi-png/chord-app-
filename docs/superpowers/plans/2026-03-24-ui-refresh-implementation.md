@@ -38,7 +38,11 @@
 
 This provides reusable constants for all pages.
 
-- [ ] **Step 1: Create design system constants file**
+- [ ] **Step 1: Create styles directory and design system file**
+
+```bash
+mkdir -p frontend/src/styles
+```
 
 Create `frontend/src/styles/designSystem.js`:
 
@@ -199,10 +203,16 @@ export const components = {
 };
 ```
 
-- [ ] **Step 2: Verify file created**
+- [ ] **Step 2: Verify file and test imports**
 
 Run: `ls -la frontend/src/styles/`
 Expected: `designSystem.js` exists
+
+Test that the module can be imported:
+```bash
+cd frontend && npm start
+```
+Should start without import errors (Ctrl+C to stop once verified)
 
 - [ ] **Step 3: Commit**
 
