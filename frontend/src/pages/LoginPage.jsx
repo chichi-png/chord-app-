@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import { useAuth } from '../contexts/AuthContext';
-import { colors, typography, spacing, borderRadius, shadows, components } from '../styles/designSystem';
+import { colors, typography, spacing, borderRadius, components } from '../styles/designSystem';
 
 const LoginPage = () => {
   const navigate = useNavigate();

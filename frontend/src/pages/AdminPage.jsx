@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import api from '../utils/api';
-import { colors, typography, spacing, borderRadius, shadows, components } from '../styles/designSystem';
+import { colors, typography, spacing, borderRadius, components } from '../styles/designSystem';
 
 const AdminPage = () => {
   const navigate = useNavigate();
