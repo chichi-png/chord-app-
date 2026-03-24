@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import api from '../utils/api';
+import { colors, typography, spacing, borderRadius, shadows, components } from '../styles/designSystem';
 
 const LibraryPage = () => {
   const navigate = useNavigate();
@@ -231,32 +232,48 @@ const LibraryPage = () => {
 
 // SongGroup Component
 const SongGroup = ({ title, songs, isAdmin, onSongClick, onEdit, onDelete }) => {
+  const [hoveredRow, setHoveredRow] = React.useState(null);
+
   return (
     <div style={styles.group}>
       <h2 style={styles.groupTitle}>{title}</h2>
-      <div style={styles.songGrid}>
+      <div style={styles.songList}>
         {songs.map(song => (
-          <div key={song.id} style={styles.songCard} onClick={() => onSongClick(song.id)}>
-            <div style={styles.songCardContent}>
+          <div
+            key={song.id}
+            style={{
+              ...styles.songRow,
+              ...(hoveredRow === song.id ? styles.songRowHover : {}),
+            }}
+            onClick={() => onSongClick(song.id)}
+            onMouseEnter={() => setHoveredRow(song.id)}
+            onMouseLeave={() => setHoveredRow(null)}
+          >
+            <div style={styles.songInfo}>
               <h3 style={styles.songTitle}>{song.title}</h3>
-              <p style={styles.songKey}>Key: {song.original_key}</p>
+              <p style={styles.songMeta}>
+                {song.language === 'Tagalog' ? '🇵🇭' : '🌐'} {song.language} · {song.category}
+              </p>
             </div>
-            {isAdmin && (
-              <div style={styles.songActions} onClick={(e) => e.stopPropagation()}>
-                <button
-                  onClick={() => onEdit(song.id)}
-                  style={styles.editButton}
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => onDelete(song.id, song.title)}
-                  style={styles.deleteButton}
-                >
-                  Delete
-                </button>
-              </div>
-            )}
+            <div style={styles.songRight}>
+              <div style={styles.keyBadge}>Key: {song.original_key}</div>
+              {isAdmin && (
+                <div style={styles.songActions} onClick={(e) => e.stopPropagation()}>
+                  <button
+                    onClick={() => onEdit(song.id)}
+                    style={styles.editButton}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => onDelete(song.id, song.title)}
+                    style={styles.deleteButton}
+                  >
+                    Delete
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         ))}
       </div>
@@ -267,60 +284,45 @@ const SongGroup = ({ title, songs, isAdmin, onSongClick, onEdit, onDelete }) => 
 const styles = {
   container: {
     minHeight: '100vh',
-    backgroundColor: '#000000',
-    color: '#ffffff',
-    padding: '20px',
+    backgroundColor: colors.background,
+    color: colors.darkText,
+    fontFamily: typography.fontFamily,
   },
   loading: {
     textAlign: 'center',
     padding: '50px',
-    fontSize: '18px',
-    color: '#666',
+    fontSize: typography.body,
+    color: colors.secondaryText,
   },
   header: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: '30px',
-    paddingBottom: '20px',
-    borderBottom: '1px solid #222',
+    padding: spacing.containerPadding,
+    borderBottom: `2px solid ${colors.borderDark}`,
+    backgroundColor: colors.background,
   },
   headerLeft: {
     display: 'flex',
     alignItems: 'center',
   },
   appTitle: {
-    fontSize: '28px',
-    color: '#ffffff',
+    fontSize: typography.appTitle,
+    color: colors.darkText,
     margin: 0,
-    fontWeight: '300',
-    letterSpacing: '-0.5px',
+    fontWeight: typography.medium,
+    letterSpacing: '-0.3px',
   },
   headerRight: {
     display: 'flex',
     alignItems: 'center',
-    gap: '12px',
+    gap: spacing.headerGap,
   },
   addButton: {
-    padding: '10px 20px',
-    backgroundColor: '#ffffff',
-    color: '#000000',
-    border: 'none',
-    borderRadius: '6px',
-    fontSize: '14px',
-    fontWeight: '500',
-    cursor: 'pointer',
-    transition: 'opacity 0.2s',
+    ...components.buttonPrimary,
   },
   adminButton: {
-    padding: '10px 20px',
-    backgroundColor: '#1a1a1a',
-    color: '#ffffff',
-    border: '1px solid #333',
-    borderRadius: '6px',
-    fontSize: '14px',
-    fontWeight: '500',
-    cursor: 'pointer',
+    ...components.buttonSecondary,
   },
   userInfo: {
     display: 'flex',
@@ -331,87 +333,121 @@ const styles = {
     width: '32px',
     height: '32px',
     borderRadius: '50%',
+    border: `1px solid ${colors.border}`,
   },
   userName: {
-    fontSize: '14px',
-    color: '#888',
+    fontSize: typography.metadata,
+    color: colors.secondaryText,
   },
   logoutButton: {
-    padding: '10px 20px',
-    backgroundColor: '#1a1a1a',
-    color: '#ffffff',
-    border: '1px solid #333',
-    borderRadius: '6px',
-    fontSize: '14px',
-    cursor: 'pointer',
+    ...components.buttonSecondary,
   },
   filters: {
     display: 'flex',
-    gap: '15px',
-    marginBottom: '30px',
+    gap: spacing.formGap,
+    padding: `0 ${spacing.containerPadding}`,
+    marginTop: spacing.sectionGap,
+    marginBottom: spacing.sectionGap,
     flexWrap: 'wrap',
   },
+  searchInput: {
+    ...components.input,
+    flex: 1,
+    minWidth: '200px',
+  },
+  select: {
+    ...components.input,
+    minWidth: '150px',
+  },
+  content: {
+    padding: `0 ${spacing.containerPadding} ${spacing.containerPadding}`,
+  },
+  error: {
+    padding: spacing.cardPadding,
+    margin: `0 ${spacing.containerPadding} ${spacing.sectionGap}`,
+    backgroundColor: colors.errorBg,
+    color: colors.error,
+    borderRadius: borderRadius.card,
+    border: `1px solid ${colors.errorBorder}`,
+  },
+  emptyState: {
+    textAlign: 'center',
+    padding: '60px 20px',
+    color: colors.secondaryText,
+  },
   group: {
-    marginBottom: '40px',
+    marginBottom: spacing.sectionGap,
   },
   groupTitle: {
-    fontSize: '20px',
-    fontWeight: '400',
-    color: '#ffffff',
-    marginBottom: '20px',
+    fontSize: typography.heading,
+    fontWeight: typography.medium,
+    color: colors.darkText,
+    marginBottom: '16px',
     letterSpacing: '-0.3px',
   },
-  songGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-    gap: '16px',
+  songList: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: spacing.listGap,
   },
-  songCard: {
-    backgroundColor: '#0a0a0a',
-    border: '1px solid #222',
-    borderRadius: '8px',
-    padding: '20px',
+  songRow: {
+    ...components.card,
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     cursor: 'pointer',
-    transition: 'all 0.2s',
   },
-  songCardContent: {
-    marginBottom: '12px',
+  songRowHover: {
+    boxShadow: shadows.cardHover,
+    borderColor: colors.borderDark,
+  },
+  songInfo: {
+    flex: 1,
   },
   songTitle: {
-    fontSize: '18px',
-    fontWeight: '400',
-    color: '#ffffff',
-    margin: '0 0 8px 0',
+    fontSize: typography.songTitle,
+    fontWeight: typography.medium,
+    color: colors.darkText,
+    margin: '0 0 4px 0',
   },
-  songKey: {
-    fontSize: '14px',
-    color: '#666',
+  songMeta: {
+    fontSize: typography.metadata,
+    color: colors.secondaryText,
     margin: 0,
+  },
+  songRight: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+  },
+  keyBadge: {
+    ...components.keyBadge,
   },
   songActions: {
     display: 'flex',
     gap: '8px',
-    marginTop: '12px',
   },
   editButton: {
     padding: '6px 12px',
-    backgroundColor: '#1a1a1a',
-    color: '#ffffff',
-    border: '1px solid #333',
-    borderRadius: '4px',
-    fontSize: '13px',
+    backgroundColor: colors.cardBg,
+    color: colors.darkText,
+    border: `1px solid ${colors.borderDark}`,
+    borderRadius: borderRadius.small,
+    fontSize: typography.small,
     cursor: 'pointer',
-    fontWeight: '400',
+    fontWeight: typography.medium,
+    transition: 'all 0.2s ease',
   },
   deleteButton: {
     padding: '6px 12px',
-    backgroundColor: '#1a0000',
-    color: '#ff4444',
-    border: '1px solid #330000',
-    borderRadius: '4px',
-    fontSize: '13px',
+    backgroundColor: colors.errorBg,
+    color: colors.error,
+    border: `1px solid ${colors.errorBorder}`,
+    borderRadius: borderRadius.small,
+    fontSize: typography.small,
     cursor: 'pointer',
-    fontWeight: '400',
+    fontWeight: typography.medium,
+    transition: 'all 0.2s ease',
   },
 };
 
