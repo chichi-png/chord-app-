@@ -134,9 +134,12 @@ const UploadPage = () => {
           {/* Left Column: Image Upload & OCR */}
           <div style={styles.column}>
             <div style={styles.card}>
-              <h2 style={styles.cardTitle}>1. Upload File (Optional)</h2>
+              <h2 style={styles.cardTitle}>1. Upload File (Optional - Skip if typing manually)</h2>
               <p style={styles.cardDescription}>
-                Upload image (JPG, PNG) or Word doc (.docx) to extract chords
+                Upload image (JPG, PNG) or Word doc (.docx) to extract chords via OCR
+              </p>
+              <p style={{...styles.cardDescription, fontWeight: typography.weightSemibold, color: colors.primaryAccent}}>
+                💡 Don't have an image? Skip this section and type chords manually below!
               </p>
 
               <input
@@ -174,7 +177,10 @@ const UploadPage = () => {
           {/* Right Column: Song Form */}
           <div style={styles.column}>
             <form onSubmit={handleSubmit} style={styles.card}>
-              <h2 style={styles.cardTitle}>2. Song Details</h2>
+              <h2 style={styles.cardTitle}>2. Song Details (Manual Entry)</h2>
+              <p style={{...styles.cardDescription, marginBottom: '20px'}}>
+                ✍️ Type your song details and chords directly below
+              </p>
 
               <div style={styles.formGroup}>
                 <label style={styles.label}>Song Title *</label>
@@ -231,11 +237,16 @@ const UploadPage = () => {
               </div>
 
               <div style={styles.formGroup}>
-                <label style={styles.label}>Chords *</label>
+                <label style={styles.label}>Chords * (Type or paste here)</label>
                 <textarea
                   value={chords}
                   onChange={(e) => setChords(e.target.value)}
-                  placeholder="Paste or type chords here... (use OCR button on left to extract from image)"
+                  placeholder="Type or paste your chords here...
+
+Example:
+INTRO: C- G- Em- D
+VERSE: G- Em- D
+CHORUS: C- G- Em- D"
                   required
                   rows={15}
                   style={styles.textarea}
