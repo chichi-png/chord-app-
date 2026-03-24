@@ -1,0 +1,181 @@
+<h2>How should the song library be structured?</h2>
+<p class="subtitle">Currently songs are grouped by language/category. Let's explore layout options.</p>
+
+<div class="cards">
+  <div class="card" data-choice="grouped-sections" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: #f4e8d8; padding: 24px; border-radius: 8px 8px 0 0; min-height: 320px;">
+      <!-- Header -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid rgba(44,24,16,0.1);">
+        <div style="font-size: 18px; color: #2c1810; font-weight: 500;">✝ Chord Manager</div>
+        <div style="font-size: 12px; color: #5d4838;">+ Add Song</div>
+      </div>
+
+      <!-- Filters -->
+      <div style="display: flex; gap: 8px; margin-bottom: 20px;">
+        <div style="background: white; border: 1px solid #d4a574; padding: 6px 12px; border-radius: 6px; font-size: 11px; color: #5d4838;">Search...</div>
+        <div style="background: white; border: 1px solid rgba(44,24,16,0.15); padding: 6px 12px; border-radius: 6px; font-size: 11px; color: #5d4838;">All Languages</div>
+      </div>
+
+      <!-- Section -->
+      <div style="margin-bottom: 16px;">
+        <div style="font-size: 13px; color: #2c1810; font-weight: 500; margin-bottom: 10px;">🇵🇭 Tagalog — Praise</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <div style="background: white; border: 1px solid rgba(44,24,16,0.1); padding: 12px; border-radius: 6px;">
+            <div style="font-size: 12px; color: #2c1810; font-weight: 500; margin-bottom: 4px;">Song Title 1</div>
+            <div style="font-size: 10px; color: #8d7a6a;">Key: G</div>
+          </div>
+          <div style="background: white; border: 1px solid rgba(44,24,16,0.1); padding: 12px; border-radius: 6px;">
+            <div style="font-size: 12px; color: #2c1810; font-weight: 500; margin-bottom: 4px;">Song Title 2</div>
+            <div style="font-size: 10px; color: #8d7a6a;">Key: C</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Another Section -->
+      <div>
+        <div style="font-size: 13px; color: #2c1810; font-weight: 500; margin-bottom: 10px;">🌐 English — Worship</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <div style="background: white; border: 1px solid rgba(44,24,16,0.1); padding: 12px; border-radius: 6px;">
+            <div style="font-size: 12px; color: #2c1810; font-weight: 500; margin-bottom: 4px;">Song Title 3</div>
+            <div style="font-size: 10px; color: #8d7a6a;">Key: D</div>
+          </div>
+          <div style="background: white; border: 1px solid rgba(44,24,16,0.1); padding: 12px; border-radius: 6px;">
+            <div style="font-size: 12px; color: #2c1810; font-weight: 500; margin-bottom: 4px;">Song Title 4</div>
+            <div style="font-size: 10px; color: #8d7a6a;">Key: A</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Grouped Sections (Current)</h3>
+      <p>Keep the current structure - songs grouped by language/category with section headers. Familiar, organized, easy to scan.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="unified-grid" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: #f4e8d8; padding: 24px; border-radius: 8px 8px 0 0; min-height: 320px;">
+      <!-- Header -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid rgba(44,24,16,0.1);">
+        <div style="font-size: 18px; color: #2c1810; font-weight: 500;">✝ Chord Manager</div>
+        <div style="font-size: 12px; color: #5d4838;">+ Add Song</div>
+      </div>
+
+      <!-- Filters with pills -->
+      <div style="margin-bottom: 20px;">
+        <div style="background: white; border: 1px solid #d4a574; padding: 6px 12px; border-radius: 6px; font-size: 11px; color: #5d4838; margin-bottom: 8px;">Search...</div>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+          <div style="background: #d4a574; color: #2c1810; padding: 4px 10px; border-radius: 12px; font-size: 10px; font-weight: 500;">All</div>
+          <div style="background: white; border: 1px solid rgba(44,24,16,0.15); padding: 4px 10px; border-radius: 12px; font-size: 10px;">Tagalog</div>
+          <div style="background: white; border: 1px solid rgba(44,24,16,0.15); padding: 4px 10px; border-radius: 12px; font-size: 10px;">English</div>
+          <div style="background: white; border: 1px solid rgba(44,24,16,0.15); padding: 4px 10px; border-radius: 12px; font-size: 10px;">Praise</div>
+          <div style="background: white; border: 1px solid rgba(44,24,16,0.15); padding: 4px 10px; border-radius: 12px; font-size: 10px;">Worship</div>
+        </div>
+      </div>
+
+      <!-- Unified Grid -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+        <div style="background: white; border: 1px solid rgba(44,24,16,0.1); padding: 12px; border-radius: 6px;">
+          <div style="font-size: 10px; color: #d4a574; margin-bottom: 4px;">🇵🇭 PRAISE</div>
+          <div style="font-size: 11px; color: #2c1810; font-weight: 500; margin-bottom: 4px;">Song Title 1</div>
+          <div style="font-size: 9px; color: #8d7a6a;">Key: G</div>
+        </div>
+        <div style="background: white; border: 1px solid rgba(44,24,16,0.1); padding: 12px; border-radius: 6px;">
+          <div style="font-size: 10px; color: #d4a574; margin-bottom: 4px;">🌐 WORSHIP</div>
+          <div style="font-size: 11px; color: #2c1810; font-weight: 500; margin-bottom: 4px;">Song Title 2</div>
+          <div style="font-size: 9px; color: #8d7a6a;">Key: C</div>
+        </div>
+        <div style="background: white; border: 1px solid rgba(44,24,16,0.1); padding: 12px; border-radius: 6px;">
+          <div style="font-size: 10px; color: #d4a574; margin-bottom: 4px;">🇵🇭 WORSHIP</div>
+          <div style="font-size: 11px; color: #2c1810; font-weight: 500; margin-bottom: 4px;">Song Title 3</div>
+          <div style="font-size: 9px; color: #8d7a6a;">Key: D</div>
+        </div>
+        <div style="background: white; border: 1px solid rgba(44,24,16,0.1); padding: 12px; border-radius: 6px;">
+          <div style="font-size: 10px; color: #d4a574; margin-bottom: 4px;">🌐 PRAISE</div>
+          <div style="font-size: 11px; color: #2c1810; font-weight: 500; margin-bottom: 4px;">Song Title 4</div>
+          <div style="font-size: 9px; color: #8d7a6a;">Key: A</div>
+        </div>
+        <div style="background: white; border: 1px solid rgba(44,24,16,0.1); padding: 12px; border-radius: 6px;">
+          <div style="font-size: 10px; color: #d4a574; margin-bottom: 4px;">🇵🇭 PRAISE</div>
+          <div style="font-size: 11px; color: #2c1810; font-weight: 500; margin-bottom: 4px;">Song Title 5</div>
+          <div style="font-size: 9px; color: #8d7a6a;">Key: E</div>
+        </div>
+        <div style="background: white; border: 1px solid rgba(44,24,16,0.1); padding: 12px; border-radius: 6px;">
+          <div style="font-size: 10px; color: #d4a574; margin-bottom: 4px;">🌐 WORSHIP</div>
+          <div style="font-size: 11px; color: #2c1810; font-weight: 500; margin-bottom: 4px;">Song Title 6</div>
+          <div style="font-size: 9px; color: #8d7a6a;">Key: F</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Unified Grid</h3>
+      <p>All songs in one grid with pill filters. Tags show category on each card. Compact, modern, shows more at once.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="list-view" onclick="toggleSelect(this)">
+    <div class="card-image" style="background: #f4e8d8; padding: 24px; border-radius: 8px 8px 0 0; min-height: 320px;">
+      <!-- Header -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid rgba(44,24,16,0.1);">
+        <div style="font-size: 18px; color: #2c1810; font-weight: 500;">✝ Chord Manager</div>
+        <div style="font-size: 12px; color: #5d4838;">+ Add Song</div>
+      </div>
+
+      <!-- Filters -->
+      <div style="display: flex; gap: 8px; margin-bottom: 20px;">
+        <div style="background: white; border: 1px solid #d4a574; padding: 6px 12px; border-radius: 6px; font-size: 11px; color: #5d4838; flex: 1;">Search...</div>
+        <div style="background: white; border: 1px solid rgba(44,24,16,0.15); padding: 6px 12px; border-radius: 6px; font-size: 11px; color: #5d4838;">Filter</div>
+      </div>
+
+      <!-- List View -->
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="background: white; border: 1px solid rgba(44,24,16,0.1); padding: 12px 16px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 12px; color: #2c1810; font-weight: 500; margin-bottom: 2px;">Amazing Grace</div>
+            <div style="font-size: 10px; color: #8d7a6a;">🌐 English · Worship</div>
+          </div>
+          <div style="font-size: 11px; color: #d4a574; font-weight: 500;">Key: G</div>
+        </div>
+
+        <div style="background: white; border: 1px solid rgba(44,24,16,0.1); padding: 12px 16px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 12px; color: #2c1810; font-weight: 500; margin-bottom: 2px;">How Great Is Our God</div>
+            <div style="font-size: 10px; color: #8d7a6a;">🌐 English · Praise</div>
+          </div>
+          <div style="font-size: 11px; color: #d4a574; font-weight: 500;">Key: C</div>
+        </div>
+
+        <div style="background: white; border: 1px solid rgba(44,24,16,0.1); padding: 12px 16px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 12px; color: #2c1810; font-weight: 500; margin-bottom: 2px;">Papuri sa Diyos</div>
+            <div style="font-size: 10px; color: #8d7a6a;">🇵🇭 Tagalog · Praise</div>
+          </div>
+          <div style="font-size: 11px; color: #d4a574; font-weight: 500;">Key: D</div>
+        </div>
+
+        <div style="background: white; border: 1px solid rgba(44,24,16,0.1); padding: 12px 16px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 12px; color: #2c1810; font-weight: 500; margin-bottom: 2px;">Blessed Be Your Name</div>
+            <div style="font-size: 10px; color: #8d7a6a;">🌐 English · Worship</div>
+          </div>
+          <div style="font-size: 11px; color: #d4a574; font-weight: 500;">Key: A</div>
+        </div>
+
+        <div style="background: white; border: 1px solid rgba(44,24,16,0.1); padding: 12px 16px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 12px; color: #2c1810; font-weight: 500; margin-bottom: 2px;">Salamat sa Iyo</div>
+            <div style="font-size: 10px; color: #8d7a6a;">🇵🇭 Tagalog · Worship</div>
+          </div>
+          <div style="font-size: 11px; color: #d4a574; font-weight: 500;">Key: E</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>List View</h3>
+      <p>Rows instead of cards. Dense, scannable, shows all info at a glance. Great for quick navigation and mobile.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 32px; padding: 20px; background: rgba(212, 165, 116, 0.1); border-radius: 8px; border-left: 4px solid #d4a574;">
+  <p style="margin: 0; font-size: 14px; line-height: 1.6;"><strong>Tip:</strong> We can also add toggle buttons to let users switch between grid and list views!</p>
+</div>

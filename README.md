@@ -162,11 +162,7 @@ Songs are automatically grouped into 4 sections:
 
 ## 🎨 Design System
 
-- **Background:** `#0a0e1a` (deep navy/black)
-- **Cards:** `#1a1f2e` (lighter navy)
-- **Gold Accent:** `#f0c040` (headings, buttons, highlights)
-- **Typography:** Georgia serif for UI, Courier monospace for chords
-- **Dark Theme:** Optimized for evening worship team use
+See **[UI Design Specification](docs/superpowers/specs/2026-03-24-ui-refresh-design.md)** for the complete design system, color palette, typography, and component styles.
 
 ## 🔧 Development
 
@@ -200,7 +196,7 @@ docker compose logs -f nginx
 ## 📚 Documentation
 
 - **SETUP.md** - Detailed setup instructions and OAuth credential guide
-- **frontend/COMPONENT_REFERENCE.md** - Frontend component documentation
+- **docs/superpowers/specs/2026-03-24-ui-refresh-design.md** - UI design specification
 - **.env.example** - Environment variable template
 
 ## 🐛 Troubleshooting

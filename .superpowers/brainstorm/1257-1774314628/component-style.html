@@ -1,0 +1,84 @@
+<h2>How polished and soft should the components feel?</h2>
+<p class="subtitle">Thinking about buttons, cards, inputs - how much rounding, shadowing, and visual depth?</p>
+
+<div class="options">
+  <div class="option" data-choice="soft-rounded" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <div style="background: #f4e8d8; padding: 24px; border-radius: 8px; margin-bottom: 16px;">
+        <!-- Soft rounded examples -->
+        <button style="background: #d4a574; color: #2c1810; border: none; padding: 12px 24px; border-radius: 12px; font-size: 14px; font-weight: 500; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(44,24,16,0.12);">+ Add Song</button>
+
+        <input type="text" placeholder="Search songs..." style="width: 100%; padding: 12px 16px; border: 1px solid rgba(44,24,16,0.15); border-radius: 12px; font-size: 14px; background: white; box-sizing: border-box; margin-bottom: 12px;">
+
+        <div style="background: white; border: 1px solid rgba(44,24,16,0.08); padding: 16px; border-radius: 16px; box-shadow: 0 2px 12px rgba(44,24,16,0.08);">
+          <div style="font-size: 14px; color: #2c1810; font-weight: 500; margin-bottom: 4px;">Amazing Grace</div>
+          <div style="font-size: 12px; color: #8d7a6a;">🌐 English · Worship · Key: G</div>
+        </div>
+      </div>
+      <h3>Soft & Rounded</h3>
+      <p>Generous border-radius (12-16px), subtle shadows, gentle depth. Warm, approachable, friendly. Modern app feel.</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="minimal-clean" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <div style="background: #f4e8d8; padding: 24px; border-radius: 8px; margin-bottom: 16px;">
+        <!-- Minimal clean examples -->
+        <button style="background: #d4a574; color: #2c1810; border: none; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 500; margin-bottom: 12px;">+ Add Song</button>
+
+        <input type="text" placeholder="Search songs..." style="width: 100%; padding: 12px 16px; border: 1px solid rgba(44,24,16,0.2); border-radius: 6px; font-size: 14px; background: white; box-sizing: border-box; margin-bottom: 12px;">
+
+        <div style="background: white; border: 1px solid rgba(44,24,16,0.15); padding: 16px; border-radius: 8px;">
+          <div style="font-size: 14px; color: #2c1810; font-weight: 500; margin-bottom: 4px;">Amazing Grace</div>
+          <div style="font-size: 12px; color: #8d7a6a;">🌐 English · Worship · Key: G</div>
+        </div>
+      </div>
+      <h3>Minimal & Clean</h3>
+      <p>Moderate border-radius (6-8px), no shadows, clean borders. Simple, functional, uncluttered. Balanced approach.</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="flat-crisp" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <div style="background: #f4e8d8; padding: 24px; border-radius: 8px; margin-bottom: 16px;">
+        <!-- Flat crisp examples -->
+        <button style="background: #d4a574; color: #2c1810; border: none; padding: 12px 24px; border-radius: 4px; font-size: 14px; font-weight: 500; margin-bottom: 12px;">+ Add Song</button>
+
+        <input type="text" placeholder="Search songs..." style="width: 100%; padding: 12px 16px; border: 2px solid rgba(44,24,16,0.25); border-radius: 4px; font-size: 14px; background: white; box-sizing: border-box; margin-bottom: 12px;">
+
+        <div style="background: white; border: 2px solid rgba(44,24,16,0.2); padding: 16px; border-radius: 4px;">
+          <div style="font-size: 14px; color: #2c1810; font-weight: 500; margin-bottom: 4px;">Amazing Grace</div>
+          <div style="font-size: 12px; color: #8d7a6a;">🌐 English · Worship · Key: G</div>
+        </div>
+      </div>
+      <h3>Flat & Crisp</h3>
+      <p>Minimal border-radius (4px), stronger borders, no shadows. Clean, direct, efficient. Classic utility feel.</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="warm-textured" onclick="toggleSelect(this)">
+    <div class="letter">D</div>
+    <div class="content">
+      <div style="background: #f4e8d8; padding: 24px; border-radius: 8px; margin-bottom: 16px;">
+        <!-- Warm textured examples -->
+        <button style="background: linear-gradient(135deg, #d4a574 0%, #c89560 100%); color: #2c1810; border: none; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(44,24,16,0.15), inset 0 1px 0 rgba(255,255,255,0.3);">+ Add Song</button>
+
+        <input type="text" placeholder="Search songs..." style="width: 100%; padding: 12px 16px; border: 1px solid rgba(44,24,16,0.2); border-radius: 8px; font-size: 14px; background: white; box-sizing: border-box; margin-bottom: 12px; box-shadow: inset 0 1px 2px rgba(44,24,16,0.08);">
+
+        <div style="background: linear-gradient(to bottom, white 0%, #fdfcfb 100%); border: 1px solid rgba(44,24,16,0.15); padding: 16px; border-radius: 10px; box-shadow: 0 1px 3px rgba(44,24,16,0.08);">
+          <div style="font-size: 14px; color: #2c1810; font-weight: 500; margin-bottom: 4px;">Amazing Grace</div>
+          <div style="font-size: 12px; color: #8d7a6a;">🌐 English · Worship · Key: G</div>
+        </div>
+      </div>
+      <h3>Warm & Textured</h3>
+      <p>Subtle gradients, inset shadows, tactile feel. Buttons and cards have depth. Handcrafted, artisanal warmth.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 32px; padding: 20px; background: rgba(212, 165, 116, 0.1); border-radius: 8px; border-left: 4px solid #d4a574;">
+  <p style="margin: 0; font-size: 14px; line-height: 1.6;"><strong>Think about:</strong> Which level of polish matches the "warm & approachable" vibe you're going for?</p>
+</div>
